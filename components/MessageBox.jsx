@@ -1,9 +1,12 @@
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
+import Image from 'next/image';
 
 export default function MessageBox() {
   return (
     <div className="flex justify-start w-full p-4 border-t-[1px] border-[#e9ebf0] hover:bg-[#fafcff] hover:border-[#c3cff4]">
-              <img
+              <Image
+              width={10}
+              height={10}
                 src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80"
                 alt="profile image"
                 className='rounded-[50%] object-cover w-10 h-10'
@@ -13,7 +16,7 @@ export default function MessageBox() {
                   <div className='text-base font-semibold text-[#1f1c2e] m-0'>Stephanie</div>
                   <div className="star-checkbox">
                     <input type="checkbox" id="star-1" />
-                    <label for="star-1">
+                    <label htmlFor="star-1">
                     <StarBorderOutlinedIcon />
                     </label>
                   </div>

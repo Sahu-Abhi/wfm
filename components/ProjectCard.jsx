@@ -1,5 +1,6 @@
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import Image from 'next/image';
 
 export default function ProjectCard() {
   return (
@@ -26,12 +27,16 @@ export default function ProjectCard() {
         </div>
         <div className=" flex justify-between pt-4 relative ">
           <div className="participants flex items-center">
-            <img
+            <Image
+              width={5}
+              height={5}
               src="https://images.unsplash.com/photo-1596815064285-45ed8a9c0463?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1215&q=80"
               alt="participant"
               className='w-5 h-5 rounded-[50%] overflow-hidden object-cover'
             />
-            <img
+            <Image
+            width={5}
+            height={5}
               src="https://images.unsplash.com/photo-1583195764036-6dc248ac07d9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2555&q=80"
               alt="participant"
             />
