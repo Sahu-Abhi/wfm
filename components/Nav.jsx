@@ -53,7 +53,7 @@ const Nav = (props) => {
                   type='button'
                   key={provider.name}
                   onClick={() => {
-                    signIn(provider.id,{callbackUrl: 'http://localhost:3000/dashboard'});
+                    signIn(provider.id,{callbackUrl: '/dashboard'});
                     console.log(session)
                   }}
                   className='black_btn'
