@@ -5,25 +5,40 @@ import ProjectCard from "@components/ProjectCard";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import Link from "next/link";
 
+const getProjects = async () => {
+  try {
+    const res = await fetch("http://localhost:3000/api/projects", {
+      cache: "no-store",
+    });
 
-export default function Dashboard() {
-  
+    if (!res.ok) {
+      throw new Error("Failed to fetch Projects");
+    }
 
-  function getCurrentDate() {
-    const date = new Date();
-
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
-    let year = date.getFullYear();
-
-    let currentDate = `${day}-${month}-${year}`;
-    return currentDate;
+    return res.json();
+  } catch (error) {
+    console.log("Error loading Projects...", error);
   }
+};
+
+function getCurrentDate() {
+  const date = new Date();
+  
+  let day = date.getDate();
+  let month = date.getMonth() + 1;
+  let year = date.getFullYear();
+
+  let currentDate = `${day}-${month}-${year}`;
+  return currentDate;
+}
+
+export default async function Dashboard() {
+  const { projects, projectCount } = await getProjects();
+  
 
   return (
     <div className=" w-full h-full flex flex-col bg-transparent transition ">
-      
-        <Dashboard_Nav />
+      <Dashboard_Nav isInsideProjectCard={false}/>
 
       <div className="flex h-full overflow-hidden pt-4 pr-6 pb-6 pl-0">
         <div className="py-10 px-4 flex flex-col items-center">
@@ -51,7 +66,7 @@ export default function Dashboard() {
                 <span className="status-type">Upcoming</span>
               </div>
               <div className="item-status">
-                <span className="status-number">62</span>
+                <span className="status-number">{projectCount}</span>
                 <span className="status-type">Total Projects</span>
               </div>
             </div>
@@ -100,10 +115,21 @@ export default function Dashboard() {
             </div> */}
           </div>
 
-          <div className=" my-0 mx-[-8px] overflow-y-auto">
-            <ProjectCard />
+          <div className=" my-0 mx-[-8px] overflow-y-auto grid grid-cols-3">
+            {projects.map((p) => (
+              <ProjectCard
+                key={p._id}
+                id={p._id}
+                title={p.title}
+                description={p.description}
+                progress={p.progress}
+                users={p.users}
+                deadline={p.deadline}
+              />
+            ))}
           </div>
         </div>
+
         <Message />
       </div>
     </div>

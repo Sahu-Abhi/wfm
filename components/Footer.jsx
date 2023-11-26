@@ -47,7 +47,7 @@ export default function Footer() {
         
         <div className="flex items-center justify-between">
             <Link href="#">
-                <Image width={"80"} height={"30"} className="w-auto h-7" src="/assets/logo.svg" alt="" />
+                <Image width={"80"} height={"30"} className="w-auto h-7" src="/assets/logo.svg" alt="wfm logo" />
             </Link>
             
             <div className="flex -mx-2">

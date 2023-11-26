@@ -32,8 +32,8 @@ const Nav = (props) => {
           src="/assets/logo.svg"
           width={80}
           height={30}
-          className="object-contain"
-          alt=""
+          className="object-contain h-auto"
+          alt="Wfm logo"
         />
       </Link>
       <ul className=" flex flex-row text-slate-50 gap-8 items-center">

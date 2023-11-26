@@ -3,7 +3,7 @@ import PlayCircleFilledOutlinedIcon from "@mui/icons-material/PlayCircleFilledOu
 export default function About(){
   return (
     <section className="w-full flex-center flex-col">
-      <div className="bg-[#EDF1F4] h-[30vh] px-52 py-16">
+      <div className="bg-[#EDF1F4] h-[45vh] px-52 py-16">
         <div className="flex flex-row gap-16 justify-center items-center ">
           <h2 className="text-4xl font-medium text-start w-[650px]">
             WorkFlowMagnet is designed to enhance your daily productivity.

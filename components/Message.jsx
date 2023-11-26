@@ -8,6 +8,7 @@ export default function Message() {
             <p className='text-2xl font-bold opacity-[0.9] m-0'>Client Messages</p>
           </div>
           <div className="messages">
+            
             <MessageBox />
             
           </div>
