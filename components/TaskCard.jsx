@@ -19,7 +19,7 @@ export default function TaskCard({ id, description, users, tag, deadline }) {
     const confirmed = confirm('Are you sure you want to delete task?');
 
     if (confirmed) {
-      const res = await fetch(`http://localhost:3000/api/tasks?id=${id}`,{
+      const res = await fetch(`/api/tasks?id=${id}`,{
         method: "DELETE",
       });
 
@@ -120,10 +120,10 @@ export default function TaskCard({ id, description, users, tag, deadline }) {
             </svg>
             <span className="ml-1 leading-none">1</span>
           </div>
-          <img
+          {/* <img
             className="w-6 h-6 ml-auto rounded-full"
             src="https://randomuser.me/api/portraits/women/26.jpg"
-          />
+          /> */}
         </div>
       </div>
     </div>

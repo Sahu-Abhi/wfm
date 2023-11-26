@@ -22,7 +22,7 @@ export default function AddProject({ togglePopover }) {
     setSubmitting(true);
 
     try{
-      const response = await fetch('http://localhost:3000/api/projects',{
+      const response = await fetch('/api/projects',{
         method: 'POST',
         body: JSON.stringify({
           userId: session?.user.id,

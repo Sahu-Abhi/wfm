@@ -4,10 +4,11 @@ import Message from "@components/Message";
 import ProjectCard from "@components/ProjectCard";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import Link from "next/link";
+import  {useState, useEffect} from "react"
 
 const getProjects = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/projects", {
+    const res = await fetch("/api/projects", {
       cache: "no-store",
     });
 
@@ -23,7 +24,7 @@ const getProjects = async () => {
 
 function getCurrentDate() {
   const date = new Date();
-  
+
   let day = date.getDate();
   let month = date.getMonth() + 1;
   let year = date.getFullYear();
@@ -32,13 +33,26 @@ function getCurrentDate() {
   return currentDate;
 }
 
-export default async function Dashboard() {
-  const { projects, projectCount } = await getProjects();
+
+
+export default function Dashboard() {
+  const [projects, setProjects] = useState(null);
+  const [projectCount, setProjectCount] = useState(null);
+
+
+  useEffect(() => {
+    const getData = async () => {
+      const { projects, projectCount } = await getProjects();
+      projects && setProjects(projects);
+      projectCount && setProjectCount(projectCount);
+    };
   
+    getData()
+  }, []);
 
   return (
     <div className=" w-full h-full flex flex-col bg-transparent transition ">
-      <Dashboard_Nav isInsideProjectCard={false}/>
+      <Dashboard_Nav isInsideProjectCard={false} />
 
       <div className="flex h-full overflow-hidden pt-4 pr-6 pb-6 pl-0">
         <div className="py-10 px-4 flex flex-col items-center">
@@ -116,7 +130,7 @@ export default async function Dashboard() {
           </div>
 
           <div className=" my-0 mx-[-8px] overflow-y-auto grid grid-cols-3">
-            {projects.map((p) => (
+            {projects?.map((p) => (
               <ProjectCard
                 key={p._id}
                 id={p._id}

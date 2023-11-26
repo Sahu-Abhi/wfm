@@ -33,7 +33,7 @@ export default function AddTask({ togglePopover, projectID }) {
     setSubmitting(true);
 
     try {
-      const response = await fetch("http://localhost:3000/api/tasks", {
+      const response = await fetch("/api/tasks", {
         method: "POST",
         body: JSON.stringify({
           projectID: projectID,

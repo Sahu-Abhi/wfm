@@ -44,7 +44,7 @@ export default function Dashboard_Nav({ isInsideProjectCard, projectID }) {
           src="/assets/logo.svg"
           width={80}
           height={30}
-          className="object-contain header-left h-auto fill-black"
+          className="object-contain header-left fill-black"
           alt="WFM-Logo"
         />
         </Link>
@@ -106,7 +106,7 @@ export default function Dashboard_Nav({ isInsideProjectCard, projectID }) {
                     setToggleDropdown((prev) => {
                       return !prev;
                     });
-                    signOut({ callbackUrl: "http://localhost:3000" });
+                    signOut({ callbackUrl: "/" });
                   }}
                   className="black_btn">
                   Sign Out
