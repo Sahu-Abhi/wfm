@@ -18,7 +18,7 @@ import {
 import { PopoverClose } from "@radix-ui/react-popover";
 
 
-export default function Dashboard_Nav({ isInsideProjectCard, projectID }) {
+export default function Dashboard_Nav({ isInsideProjectCard, projectID, data }) {
   const { data: session, status } = useSession();
   const [toggleDropdown, setToggleDropdown] = useState(false);
   const [togglePopover, setTogglePopover] = useState(false);
@@ -74,7 +74,7 @@ export default function Dashboard_Nav({ isInsideProjectCard, projectID }) {
             {isInsideProjectCard ? (
               <AddTask togglePopover={setTogglePopover} projectID={projectID} />
             ) : (
-              <AddProject togglePopover={setTogglePopover} />
+              <AddProject togglePopover={setTogglePopover} data={ data } />
             )}
           </PopoverContent>
         </Popover>

@@ -2,11 +2,9 @@
 
 import { useState } from "react";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
 import { DatePicker } from "./DatePicker";
 
-export default function AddProject({ togglePopover }) {
-  const router = useRouter();
+export default function AddProject({ togglePopover, data }) {
   const {data: session } = useSession(); 
   const [submitting, setSubmitting] = useState(false);
   const [project, setProject] = useState({
@@ -34,7 +32,8 @@ export default function AddProject({ togglePopover }) {
         })
       })
       if(response.ok) {
-        router.refresh();
+        await data();
+        console.log("Working inside response");
       }
     }catch(error){
       console.log(error);

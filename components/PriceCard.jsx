@@ -10,7 +10,7 @@ export default function PriceCard() {
             Free
           </p>
           <h1 className="mt-6 flex justify-center gap-1 font-sans text-7xl font-normal tracking-normal text-white antialiased">
-            <span className="mt-2 text-4xl">$</span>29
+            <span className="mt-2 text-4xl">₹</span>229
             <span className="self-end text-4xl">/mo</span>
           </h1>
         </div>

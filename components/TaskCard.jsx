@@ -118,7 +118,7 @@ export default function TaskCard({ id, description, users, tag, deadline }) {
                 clipRule="evenodd"
               />
             </svg>
-            <span className="ml-1 leading-none">1</span>
+            <span className="ml-1 leading-none">{users}</span>
           </div>
           {/* <img
             className="w-6 h-6 ml-auto rounded-full"

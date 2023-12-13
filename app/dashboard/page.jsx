@@ -5,6 +5,7 @@ import ProjectCard from "@components/ProjectCard";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import Link from "next/link";
 import  {useState, useEffect} from "react"
+import { useRouter } from "next/navigation"
 
 const getProjects = async () => {
   try {
@@ -36,23 +37,25 @@ function getCurrentDate() {
 
 
 export default function Dashboard() {
+  const router =  useRouter();
   const [projects, setProjects] = useState(null);
   const [projectCount, setProjectCount] = useState(null);
-
+  // const refreshPage = () => {
+  //   router.refresh();
+  // }
+  const getData = async () => {
+    const { projects, projectCount } = await getProjects();
+    projects && setProjects(projects);
+    projectCount && setProjectCount(projectCount);
+  };
 
   useEffect(() => {
-    const getData = async () => {
-      const { projects, projectCount } = await getProjects();
-      projects && setProjects(projects);
-      projectCount && setProjectCount(projectCount);
-    };
-  
     getData()
   }, []);
 
   return (
     <div className=" w-full h-full flex flex-col bg-transparent transition ">
-      <Dashboard_Nav isInsideProjectCard={false} />
+      <Dashboard_Nav isInsideProjectCard={false} data={ getData } />
 
       <div className="flex h-full overflow-hidden pt-4 pr-6 pb-6 pl-0">
         <div className="py-10 px-4 flex flex-col items-center">

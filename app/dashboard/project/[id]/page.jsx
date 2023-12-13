@@ -164,6 +164,7 @@ export default function ProjectPage({ params }) {
                   description={t.description}
                   tag={t.tag}
                   deadline={t.deadline}
+                  users={t.users}
                 />);
               })}
             </div>
@@ -187,6 +188,7 @@ export default function ProjectPage({ params }) {
                   description={t.description}
                   tag={t.tag}
                   deadline={t.deadline}
+                  users={t.users}
                 />);
               })}
             </div>
@@ -209,6 +211,7 @@ export default function ProjectPage({ params }) {
                   description={t.description}
                   tag={t.tag}
                   deadline={t.deadline}
+                  users={t.users}
                 />);
               })}
               
@@ -232,6 +235,7 @@ export default function ProjectPage({ params }) {
                   description={t.description}
                   tag={t.tag}
                   deadline={t.deadline}
+                  users={t.users}
                 />);
               })}
             </div>
@@ -254,6 +258,7 @@ export default function ProjectPage({ params }) {
                   description={t.description}
                   tag={t.tag}
                   deadline={t.deadline}
+                  users={t.users}
                 />);
               })}
             </div>

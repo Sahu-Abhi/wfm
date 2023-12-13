@@ -54,16 +54,15 @@ export default function ProjectCard({
 
   return (
     <Link href={`dashboard/project/${id}`}>
-    <div className=" max-w-xl p-2 mb-4 ml-4 transition">
-      <div className=" bg-[#e9e7fd] rounded-[30px] p-4">
+    <div className=" w-xl p-2 mb-4 ml-4 transition">
+      <div className=" bg-[#B6BBC4] rounded-[30px] p-4 border-2 border-slate-400">
         <div className="project-box-header">
           <span>{deadline.split("T")[0]}</span>
           <div className="">
             <DropdownMenu>
               <DropdownMenuTrigger><MoreVertOutlinedIcon /></DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuItem><Link href={`dashboard/project/${id}`}>Open</Link></DropdownMenuItem>
-                <DropdownMenuItem><button onClick={removeProject}>Delete</button></DropdownMenuItem>
+                <DropdownMenuItem><button onClick={removeProject} className="text-red-600">Delete</button></DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
@@ -92,10 +91,7 @@ export default function ProjectCard({
               src="https://images.unsplash.com/photo-1583195764036-6dc248ac07d9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2555&q=80"
               alt="participant"
             />
-            <button className="w-5 h-5 rounded-[50%] border-none  text-[#4f3ff0] bg-white bg-opacity-[0.6] ml-[6px] flex justify-center items-center p-0 ">
-              {/* add Icon */}
-              <AddOutlinedIcon className="text-sm" />
-            </button>
+            
           </div>
           <div className="bg-white bg-opacity-[0.6] text-xs rounded-[20px] flex-shrink-0 py-[6px] px-4 font-bold text-[#4f3ff0]">
             {daysLeft} Days Left
