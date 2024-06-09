@@ -44,7 +44,7 @@ export default function Dashboard_Nav({ isInsideProjectCard, projectID, data }) 
           src="/assets/logo.svg"
           width={80}
           height={30}
-          className="object-contain header-left fill-black"
+          className="object-contain header-left"
           alt="WFM-Logo"
         />
         </Link>

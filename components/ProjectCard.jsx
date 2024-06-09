@@ -55,10 +55,10 @@ export default function ProjectCard({
   return (
     <Link href={`dashboard/project/${id}`}>
     <div className=" w-xl p-2 mb-4 ml-4 transition">
-      <div className=" bg-[#B6BBC4] rounded-[30px] p-4 border-2 border-slate-400">
-        <div className="project-box-header">
-          <span>{deadline.split("T")[0]}</span>
-          <div className="">
+      <div className=" bg-[#FFFFFF] rounded-[30px] p-4 border-2 drop-shadow-sm">
+        <div className="flex justify-between">
+          <span className="text-blue-600  mb-2">{deadline.split("T")[0]}</span>
+          <div className="text-gray-400">
             <DropdownMenu>
               <DropdownMenuTrigger><MoreVertOutlinedIcon /></DropdownMenuTrigger>
               <DropdownMenuContent>
@@ -68,11 +68,11 @@ export default function ProjectCard({
           </div>
         </div>
         <div className="project-box-content-header">
-          <p className="box-content-header">{title}</p>
+          <p className="font-semibold">{title}</p>
           <p className="box-content-subheader">{description}</p>
         </div>
         <div className="box-progress-wrapper">
-          <p className="box-progress-header">Progress</p>
+          <p className="mt-2">Progress</p>
           <Progress value={progress} className="h-1 my-2" />
           <p className="box-progress-percentage">{progress}%</p>
         </div>
