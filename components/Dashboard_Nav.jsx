@@ -30,16 +30,17 @@ export default function Dashboard_Nav({ isInsideProjectCard, projectID, data }) 
       if (!dropdownRef.current?.contains(e.target)) {
         setToggleDropdown(false);
       }
-      console.log(dropdownRef);
     };
-
     document.addEventListener("mousedown", handler);
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
   },[]);
 
   return (
     <div className=" flex justify-between items-center py-4 px-6 w-full relative">
       <div className=" flex items-center grow">
-        <Link href={"http://localhost:3000/dashboard"}>
+        <Link href={"/dashboard"}>
         <Image
           src="/assets/logo.svg"
           width={80}
@@ -79,6 +80,7 @@ export default function Dashboard_Nav({ isInsideProjectCard, projectID, data }) 
           </PopoverContent>
         </Popover>
 
+
         <button className=" ml-3">
           <NotificationsNoneOutlinedIcon className="text-3xl" />
         </button>
@@ -114,9 +116,7 @@ export default function Dashboard_Nav({ isInsideProjectCard, projectID, data }) 
               </div>
             )}
           </div>
-        ) : (
-          <></>
-        )}
+        ) : null}
       </div>
     </div>
   );
